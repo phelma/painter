@@ -68,7 +68,7 @@ canvas.addEventListener('mousemove', e => {
     (e.clientX - e.target.offsetLeft) / SCALE,
     (e.clientY - e.target.offsetTop) / SCALE
   );
-  sendCanvas();
+  // sendCanvas();
 });
 
 socket.on('connect', () => {
