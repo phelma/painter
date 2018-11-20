@@ -17,8 +17,13 @@ app.get('/api', (req, res) => {
   res.json({ data, step });
 });
 
-app.use(bundler.middleware());
-// app.use(express.static('dist'));
+if (process.env.DIST){
+  console.log('serving built');
+  app.use(express.static('dist'));
+} else {
+ console.log('serving dev')
+ app.use(bundler.middleware());
+}
 
 io.on('connection', socket => {
   console.log('user connected', socket.id);
